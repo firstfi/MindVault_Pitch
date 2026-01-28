@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MindVault – KI-Medientresor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      --blue:#0a1a2f;
+      --turquoise:#1fd1c1;
+      --white:#ffffff;
+      --gray:#9fb3c8;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif;}
+    body{
+      background: linear-gradient(180deg,#081426,#0a1a2f);
+      color:var(--white);
+      line-height:1.6;
+    }
+
+    section{padding:100px 10%;}
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8,20,38,0.55);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 10%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:0.02em;
+      color: var(--turquoise);
+      text-decoration:none;
+      font-size:1.2rem;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .link-btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--white);
+      text-decoration:none;
+      background: rgba(255,255,255,0.03);
+      transition:0.2s;
+      font-size:0.95rem;
+      white-space:nowrap;
+    }
+
+    .link-btn:hover{
+      background: var(--card);
+      transform: translateY(-1px);
+    }
+
+    .link-btn.primary{
+      background: rgba(31,209,193,0.12);
+      border-color: rgba(31,209,193,0.22);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .link-btn.primary:hover{
+      box-shadow: 0 12px 30px rgba(31,209,193,0.14);
+      border-color: rgba(31,209,193,0.35);
+    }
+
+    /* HERO */
+    .hero{
+      min-height: calc(100vh - 70px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 18px;
+    }
+
+    .kicker{
+      color: var(--turquoise);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    h1{
+      font-size:3.2rem;
+      line-height:1.1;
+      max-width: 900px;
+    }
+
+    .hero p{
+      color: var(--gray);
+      max-width: 760px;
+      font-size: 1.05rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background: var(--turquoise);
+      color:#001b1b;
+      font-weight:700;
+      border-radius:40px;
+      text-decoration:none;
+      transition:0.3s;
+      border: none;
+    }
+
+    .btn:hover{
+      transform:scale(1.04);
+      box-shadow:0 0 30px rgba(31,209,193,0.35);
+    }
+
+    .btn.secondary{
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .btn.secondary:hover{
+      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+    
+
+    /* FEATURES */
+    h2{
+      font-size:2.2rem;
+      margin-bottom: 40px;
+      text-align:center;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 26px;
+      margin-top: 16px;
+    }
+
+    .feature{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      transition:0.25s;
+    }
+
+    .feature:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.35);
+      border-color: rgba(31,209,193,0.22);
+    }
+
+    .feature h3{
+      margin-bottom: 10px;
+      color: var(--turquoise);
+      font-size: 1.1rem;
+    }
+
+    .feature p{
+      color: var(--gray);
+    }
+
+    /* VALUE STRIP */
+    .strip{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .stat{
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .stat strong{
+      color: var(--turquoise);
+      font-size: 1.15rem;
+    }
+
+    .stat span{
+      display:block;
+      color: var(--gray);
+      margin-top: 6px;
+      font-size: 0.92rem;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:60px 10%;
+      color: var(--gray);
+      font-size:0.9rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.08);
+    }
+
+    @media (max-width: 720px){
+      h1{font-size: 2.5rem;}
+      .nav-inner{padding: 14px 6%;}
+      section{padding: 80px 6%;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="mindvault.html">MindVault</a>
+
+      <div class="nav-links">
+        <a class="link-btn primary" href="weiter.html">Abos</a>
+        <a class="link-btn" href="überuns.html">Über MindVault</a>
+        <a href="über.html" class="link-btn">Über Uns</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="kicker">Der KI-Tresor für kreative Intelligenz</div>
+    <h1>Ordnung im Content-Chaos – sicher, intelligent, einfach.</h1>
+    <p>
+      MindVault organisiert Bilder, Videos und Dokumente automatisch mit KI.
+      Für Agenturen & kreative Teams im DACH-Raum – mit echter semantischer Erkennung,
+      Teamwork-Features und DSGVO-konformer EU-Cloud.
+    </p>
+
+    <div class="cta-row">
+      <a href="weiter.html" class="btn">Abos ansehen</a>
+      <a href="überuns.html" class="btn secondary">Mehr über MindVault</a>
+      <a href="über.html" class="btn secondary">Über Uns</a>
+    </div>
+
+    <div class="strip">
+      <div class="stat"><strong>80 %</strong><span>weniger Sortieraufwand</span></div>
+      <div class="stat"><strong>10×</strong><span>schnellere Suche</span></div>
+      <div class="stat"><strong>EU</strong><span>DSGVO-konforme Cloud</span></div>
+      <div class="stat"><strong>KI</strong><span>Semantik statt Dateinamen</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <h2>Was MindVault einzigartig macht</h2>
+
+    <div class="features">
+      <div class="feature">
+        <h3>🧠 Echte KI-Erkennung</h3>
+        <p>Objekte, Szenen, Emotionen und Themen werden automatisch erkannt und tagbar gemacht.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🔎 Semantische Suche</h3>
+        <p>Suche nach Bedeutung: „Finde rote Winterbilder mit Dampf“ – statt Ordner-Chaos.</p>
+      </div>
+
+      <div class="feature">
+        <h3>👥 Team & Freigaben</h3>
+        <p>Kommentare, Versionierung und Kundenfreigaben – für schnellere Abstimmungen.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🛡 DSGVO & EU-Hosting</h3>
+        <p>EU-Server, Verschlüsselung und ein Zero-Leakage-Design für echte Datensouveränität.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🎨 Intuitives Interface</h3>
+        <p>Modernes Web-UI, sofort einsatzbereit – ohne Enterprise-Überladung.</p>
+      </div>
+
+      <div class="feature">
+        <h3>⚡ Fokus auf Kreativität</h3>
+        <p>Weniger Suchen & Sortieren – mehr Zeit für Konzepte, Design und Content-Output.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <h2>Weniger suchen. Mehr schaffen.</h2>
+    <p style="text-align:center; max-width:780px; margin:0 auto; color:var(--gray);">
+      MindVault ist der Knotenpunkt zwischen Kreativarbeit und Medienverwaltung – smarter, einfacher und europäischer.
+    </p>
+    <div class="cta-row" style="justify-content:center;">
+      <a href="weiter.html" class="btn">Abo auswählen</a>
+      <a href="überuns.html" class="btn secondary">Über MindVault</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 MindVault · Made in Europe · DSGVO-konform
+  </footer>
+
+</body>
+</html>
