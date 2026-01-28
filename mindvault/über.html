@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MindVault – Über uns</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      --blue:#0a1a2f;
+      --turquoise:#1fd1c1;
+      --white:#ffffff;
+      --gray:#9fb3c8;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif;}
+    body{
+      background: linear-gradient(180deg,#081426,#0a1a2f);
+      color:var(--white);
+      line-height:1.6;
+    }
+
+    section{padding:90px 10%;}
+
+    /* NAV */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8,20,38,0.55);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 10%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:0.02em;
+      color: var(--turquoise);
+      text-decoration:none;
+      font-size:1.2rem;
+      white-space:nowrap;
+    }
+    .nav-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .link-btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--white);
+      text-decoration:none;
+      background: rgba(255,255,255,0.03);
+      transition:0.2s;
+      font-size:0.95rem;
+      white-space:nowrap;
+    }
+    .link-btn:hover{
+      background: var(--card);
+      transform: translateY(-1px);
+    }
+    .link-btn.primary{
+      background: rgba(31,209,193,0.12);
+      border-color: rgba(31,209,193,0.22);
+      color: var(--white);
+      font-weight: 600;
+    }
+    .link-btn.primary:hover{
+      box-shadow: 0 12px 30px rgba(31,209,193,0.14);
+      border-color: rgba(31,209,193,0.35);
+    }
+
+    /* HEADER */
+    .header{
+      padding-top: 70px;
+      padding-bottom: 40px;
+    }
+    .kicker{
+      color: var(--turquoise);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+    h1{
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 980px;
+    }
+    .lead{
+      color: var(--gray);
+      max-width: 920px;
+      font-size: 1.05rem;
+    }
+    .pillrow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(31,209,193,0.08);
+      border: 1px solid rgba(31,209,193,0.18);
+      color: var(--white);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+    .pill small{ color: var(--gray); font-size: 0.84rem; }
+
+    /* LAYOUT */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      margin-top: 24px;
+      align-items: start;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+    }
+    h2{
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .card p{
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .note{
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* ROLES */
+    .roles{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .role{
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.25s;
+    }
+    .role:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.30);
+      border-color: rgba(31,209,193,0.22);
+    }
+    .role h3{
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .role .tag{
+      display:inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(31,209,193,0.10);
+      border: 1px solid rgba(31,209,193,0.18);
+      color: var(--turquoise);
+      font-weight: 650;
+      font-size: 0.85rem;
+    }
+    .role p{
+      color: var(--gray);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      padding-top: 40px;
+    }
+    .cta-row{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background: var(--turquoise);
+      color:#001b1b;
+      font-weight:700;
+      border-radius:40px;
+      text-decoration:none;
+      transition:0.3s;
+      border:none;
+    }
+    .btn:hover{
+      transform:scale(1.04);
+      box-shadow:0 0 30px rgba(31,209,193,0.35);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .btn.secondary:hover{
+      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    footer{
+      text-align:center;
+      padding:60px 10%;
+      color: var(--gray);
+      font-size:0.9rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.08);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      h1{font-size: 2.35rem;}
+      .nav-inner{padding: 14px 6%;}
+      section{padding: 70px 6%;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="vorstart.html">MindVault</a>
+
+      <div class="nav-links">
+        <a class="link-btn" href="vorstart.html">Start</a>
+        <a class="link-btn primary" href="weiter.html">Abos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <section class="header">
+    <div class="kicker">Über uns · Rollen & Verantwortlichkeiten</div>
+    <h1>Ein kleines, technologiegetriebenes SaaS-Team – klar strukturiert, ohne Overhead.</h1>
+    <p class="lead">
+      MindVault ist als schlankes SaaS-Unternehmen konzipiert. In der frühen Phase werden zentrale Verantwortlichkeiten
+      auf wenige, klar definierte Rollen verteilt. So können Produktentwicklung, KI-Qualität, Markteintritt,
+      Kundenbetreuung und Finanzsteuerung parallel funktionieren – ohne unnötige Hierarchie.
+    </p>
+
+    <div class="pillrow">
+      <div class="pill">🧠 Produkt & KI <small>parallel entwickelt</small></div>
+      <div class="pill">🚀 Go-to-Market <small>DACH → EU</small></div>
+      <div class="pill">🛡 Compliance <small>DSGVO / EU-Cloud</small></div>
+      <div class="pill">📈 Finance <small>Unit Economics</small></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h2>Rollen im Unternehmen</h2>
+        <p>
+          Die Rollenstruktur ist bewusst so gewählt, dass die wichtigsten Kernbereiche von MindVault abgedeckt sind:
+          Strategie & Produktvision, Engineering & Plattform, KI & Qualitätskontrolle, Go-to-Market, Customer Success
+          sowie Finanzsteuerung. Jede Rolle ist klar abgegrenzt, um schnelle Entscheidungen, Fokus und Umsetzungsstärke
+          zu ermöglichen.
+        </p>
+        <p class="note">
+          Ziel: Ein konsistentes Gesamtmodell aus Produkt, Technologie, Marktstrategie und wirtschaftlicher Logik –
+          mit kurzen Feedbackschleifen und hoher Geschwindigkeit.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>So arbeiten wir zusammen</h2>
+        <p>
+          MindVault setzt auf klare Verantwortlichkeiten, aber enges Zusammenspiel: Produktpriorisierung entsteht aus
+          Kundenfeedback und Business-Zielen, Engineering liefert skalierbare Grundlagen, die KI-Qualität wird messbar
+          gesteuert, Go-to-Market sorgt für Nachfrage und Pilotkunden, Customer Success für Adoption & Retention und
+          Finance hält die Skalierung wirtschaftlich argumentierbar.
+        </p>
+        <p class="note">
+          Ergebnis: Wenig Overhead, hohe Ownership, schneller Markteintritt.
+        </p>
+      </div>
+    </div>
+
+    <div class="roles">
+
+      <div class="role">
+        <span class="tag">Aloys · CEO</span>
+        <h3>Geschäftsführung & Gesamtverantwortung</h3>
+        <p>
+          Aloys verantwortet Gesamtstrategie, Produktvision und Priorisierung: Positionierung, Zielgruppenfokus,
+          Pricing-Logik, Partnerstrategie und übergreifende Koordination. Zudem übernimmt er die externe Repräsentation
+          (Pitch, Pilotkunden, Investorenkommunikation).
+        </p>
+      </div>
+
+      <div class="role">
+        <span class="tag">Niclas · Software Engineer</span>
+        <h3>Plattform & Systemarchitektur</h3>
+        <p>
+          Niclas verantwortet die technische Architektur und den Aufbau der Plattform: Backend (FastAPI), Frontend
+          (Next.js), Upload- und Suchlogik, Datenbankanbindung sowie Skalierbarkeit und grundlegende DevOps-Prinzipien
+          (Deployment, Stabilität, Performance, Wichtigstes Mitglied, Ersteller dieser Website).
+        </p>
+      </div>
+
+      <div class="role">
+        <span class="tag">Jonas · AI/ML Engineer</span>
+        <h3>KI-Pipeline, Modellintegration & Qualitätskontrolle</h3>
+        <p>
+          Jonas verantwortet die KI-Funktionen: Bildanalyse (Auto-Tagging), OCR für Dokumente, Video-/Audio-Transkription
+          sowie Embeddings für semantische Suche. Zusätzlich entwickelt er die Token-Logik zur Kostenkontrolle und
+          Abrechnung und steuert die Qualitätskontrolle (Fehlerklassen, Feedbackschleifen, Verbesserungslogik).
+        </p>
+      </div>
+
+      <div class="role">
+        <span class="tag">Maximilian · Marketing</span>
+        <h3>Go-to-Market, Positionierung & Wachstum</h3>
+        <p>
+          Maximilian verantwortet den Markteintritt: Branding, Slogan/Story, Kommunikationsstrategie, Content-Marketing,
+          Kanäle und Kampagnenlogik. Dazu gehören Funnel-Denken, Lead-Generierung, Pilotkunden-Kommunikation und die
+          Vorbereitung skalierbarer Growth-Maßnahmen für DACH und später EU.
+        </p>
+      </div>
+
+      <div class="role">
+        <span class="tag">Mathias · Product & Customer Success</span>
+        <h3>Anforderungen, Onboarding & Retention</h3>
+        <p>
+          Mathias übersetzt Kundenbedürfnisse in Produktanforderungen und priorisiert Features entlang klarer Use Cases.
+          Er verantwortet User Journeys, Onboarding-Prozesse, Pilotkunden-Setup, Supportstruktur und Feedbackschleifen.
+          Ziel ist hohe Adoption, geringe Friktion beim Wechsel und langfristige Kundenbindung.
+        </p>
+      </div>
+
+      <div class="role">
+        <span class="tag">Leon · Finance</span>
+        <h3>Kostenstruktur, Finanzmodell & Steuerungslogik</h3>
+        <p>
+          Leon verantwortet Kostenstruktur, Pricing-Konsistenz, GuV (Umsatzkostenverfahren), Break-even-Logik sowie die
+          integrierte Betrachtung über Bilanz und Cashflow. Er stellt sicher, dass Prämissen nachvollziehbar sind und
+          die wirtschaftliche Story (Burn, Runway, Skalierung, Unit Economics) argumentierbar bleibt.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 style="font-size:2.1rem; margin-bottom:10px;">Mehr über MindVault entdecken</h2>
+    <p style="color:var(--gray); max-width:820px; margin:0 auto;">
+      Die Rollen sind so aufgebaut, dass Produkt, KI, Markt und Wirtschaftlichkeit gemeinsam wachsen –
+      mit klarer Verantwortung und kurzen Entscheidungswegen.
+    </p>
+
+    <div class="cta-row">
+      <a href="weiter.html" class="btn">Abos ansehen</a>
+      <a href="vorstart.html" class="btn secondary">Zur Startseite</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 MindVault · Made in Europe · DSGVO-konform
+  </footer>
+
+</body>
+</html>
+```

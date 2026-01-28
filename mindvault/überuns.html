@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MindVault – Über uns</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      --blue:#0a1a2f;
+      --turquoise:#1fd1c1;
+      --white:#ffffff;
+      --gray:#9fb3c8;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif;}
+    body{
+      background: linear-gradient(180deg,#081426,#0a1a2f);
+      color:var(--white);
+      line-height:1.6;
+    }
+
+    section{padding:90px 10%;}
+
+    /* NAV (same as homepage) */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8,20,38,0.55);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 10%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:0.02em;
+      color: var(--turquoise);
+      text-decoration:none;
+      font-size:1.2rem;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .link-btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--white);
+      text-decoration:none;
+      background: rgba(255,255,255,0.03);
+      transition:0.2s;
+      font-size:0.95rem;
+      white-space:nowrap;
+    }
+
+    .link-btn:hover{
+      background: var(--card);
+      transform: translateY(-1px);
+    }
+
+    .link-btn.primary{
+      background: rgba(31,209,193,0.12);
+      border-color: rgba(31,209,193,0.22);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .link-btn.primary:hover{
+      box-shadow: 0 12px 30px rgba(31,209,193,0.14);
+      border-color: rgba(31,209,193,0.35);
+    }
+
+    /* HEADER */
+    .header{
+      padding-top: 70px;
+      padding-bottom: 40px;
+    }
+
+    .kicker{
+      color: var(--turquoise);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    h1{
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      max-width: 900px;
+    }
+
+    .lead{
+      color: var(--gray);
+      max-width: 840px;
+      font-size: 1.05rem;
+    }
+
+    /* LAYOUT */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      margin-top: 26px;
+      align-items: start;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .card h2{
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .card p{
+      color: var(--gray);
+    }
+
+    .list{
+      margin-top: 14px;
+      display:grid;
+      gap: 10px;
+    }
+
+    .li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: var(--gray);
+    }
+
+    .li b{ color: var(--turquoise); font-weight: 700; }
+
+    /* QUOTES / PRINCIPLES */
+    .principles{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(31,209,193,0.08);
+      border: 1px solid rgba(31,209,193,0.18);
+      color: var(--white);
+      font-size: 0.92rem;
+      margin-top: 12px;
+      white-space: nowrap;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      padding-top: 40px;
+    }
+
+    .cta-row{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background: var(--turquoise);
+      color:#001b1b;
+      font-weight:700;
+      border-radius:40px;
+      text-decoration:none;
+      transition:0.3s;
+      border:none;
+    }
+
+    .btn:hover{
+      transform:scale(1.04);
+      box-shadow:0 0 30px rgba(31,209,193,0.35);
+    }
+
+    .btn.secondary{
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .btn.secondary:hover{
+      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    footer{
+      text-align:center;
+      padding:60px 10%;
+      color: var(--gray);
+      font-size:0.9rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.08);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      h1{font-size: 2.35rem;}
+      .nav-inner{padding: 14px 6%;}
+      section{padding: 70px 6%;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="vorstart.html">MindVault</a>
+
+      <div class="nav-links">
+        <a class="link-btn" href="vorstart.html">Start</a>
+        <a class="link-btn primary" href="weiter.html">Abos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <section class="header">
+    <div class="kicker"></div>
+    <h1>Wir bauen Europas KI-Standard für Medienorganisation.</h1>
+    <p class="lead">
+      MindVault ist entstanden aus einem echten Problem in Agenturen und kreativen Teams:
+      Dateien wachsen schneller als Strukturen. Unsere Mission ist es, Content-Chaos in Klarheit zu verwandeln –
+      sicher, intelligent und sofort nutzbar.
+    </p>
+
+    <div class="pill">🛡 EU-Cloud · DSGVO-konform</div>
+    <div class="pill">🧠 Semantik statt Metadaten</div>
+    <div class="pill">🎨 Für Kreativteams gebaut</div>
+  </section>
+
+  <!-- CONTENT -->
+  <section>
+    <div class="grid">
+
+      <div class="card">
+        <h2>Warum MindVault?</h2>
+        <p>
+          Kreative Teams verlieren täglich Zeit durch unstrukturierte Ablagen, Dubletten und fehlende Suchfunktionen.
+          Gleichzeitig erfüllen viele US-Clouds nicht die europäischen Datenschutzanforderungen.
+          MindVault verbindet KI-Intelligenz mit europäischer Datensouveränität – ohne Enterprise-Komplexität.
+        </p>
+
+        <div class="list">
+          <div class="li"><b>Problem:</b> Bis zu 30 % Arbeitszeit gehen fürs Suchen, Sortieren und Austauschen drauf.</div>
+          <div class="li"><b>Lösung:</b> Automatische Erkennung, semantische Suche & Teamwork-Features.</div>
+          <div class="li"><b>Sicherheit:</b> EU-Hosting, Verschlüsselung, Zero-Leakage-Design.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Wofür wir stehen</h2>
+        <p>Unsere Prinzipien sind einfach – und kompromisslos.</p>
+
+        <div class="principles">
+          <div class="card" style="padding:18px;">
+            <h2 style="font-size:1.05rem;">Vertrauen</h2>
+            <p>Datenschutz & Sicherheit sind Produkt-Features – nicht Marketing.</p>
+          </div>
+          <div class="card" style="padding:18px;">
+            <h2 style="font-size:1.05rem;">Klarheit</h2>
+            <p>Weniger Klicks, weniger Chaos – Premium UX/UI für Alltagsteams.</p>
+          </div>
+          <div class="card" style="padding:18px;">
+            <h2 style="font-size:1.05rem;">Intelligenz</h2>
+            <p>KI, die Inhalte wirklich versteht: Semantik, Stimmung, Kontext.</p>
+          </div>
+          <div class="card" style="padding:18px;">
+            <h2 style="font-size:1.05rem;">Fokus</h2>
+            <p>Wir optimieren für Kreativität – nicht für IT-Overhead.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h2>Für wen wir bauen</h2>
+        <p>
+          MindVault richtet sich an Teams mit 5–100 Mitarbeitenden im DACH-Raum:
+          Marketing- und Social-Media-Agenturen, Foto-/Videoproduktion sowie KMUs mit eigenem Marketingteam.
+        </p>
+        <div class="list">
+          <div class="li"><b>Jobs-to-be-done:</b> Medien schnell finden & ordnen, automatisiert taggen, Teamarbeit koordinieren.</div>
+          <div class="li"><b>Pain Points:</b> Chaos, Zeitverlust, Unsicherheit, hohe Tool-Kosten.</div>
+          <div class="li"><b>Ergebnis:</b> Ordnung, Geschwindigkeit & Fokus auf Kreativität.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Wie wir gewinnen</h2>
+        <p>
+          Wir sind smarter, einfacher und europäischer als klassische DAMs.
+          Kein Enterprise-Ballast – stattdessen sofort einsatzbereit, fair bepreist und KI-getrieben.
+        </p>
+        <div class="list">
+          <div class="li"><b>USP:</b> Echte semantische KI (nicht nur Metadaten).</div>
+          <div class="li"><b>Design:</b> Modernes Interface, sofort nutzbar.</div>
+          <div class="li"><b>Datenschutz:</b> EU-Server, Verschlüsselung, DSGVO-Compliance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 style="font-size:2.1rem; margin-bottom:10px;">Bereit für weniger Chaos?</h2>
+    <p style="color:var(--gray); max-width:780px; margin:0 auto;">
+      Starte mit einem passenden Abo und skaliere flexibel mit Speicher & Tokens.
+      Kündigung jederzeit möglich.
+    </p>
+
+    <div class="cta-row">
+      <a href="weiter.html" class="btn">Abos ansehen</a>
+      <a href="vorstart.html" class="btn secondary">Zur Startseite</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 MindVault · Made in Europe · DSGVO-konform
+  </footer>
+
+</body>
+</html>

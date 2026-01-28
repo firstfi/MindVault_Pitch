@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MindVault – Preise & Abos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --blue: #0a1a2f;
+      --turquoise: #1fd1c1;
+      --white: #ffffff;
+      --gray: #9fb3c8;
+      --card: rgba(255, 255, 255, 0.04);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #081426, #0a1a2f);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    /* ================= HEADER ================= */
+
+    .pricing-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 10% 50px; /* ↓ weniger Abstand nach unten */
+    }
+
+    .pricing-header h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .pricing-header p {
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ================= PRICING ================= */
+
+    .pricing-section {
+      padding-top: 40px; /* ↓ näher an Header */
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 30px; /* ↓ weniger Abstand zu Cards */
+      text-align: center;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      margin-top: 20px; /* ↓ Cards näher an Überschrift */
+    }
+
+    .plan {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 40px 30px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .plan:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .popular {
+      border: 2px solid var(--turquoise);
+    }
+
+    .badge {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: var(--turquoise);
+      color: #002222;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .plan h3 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .plan p {
+      color: var(--gray);
+    }
+
+    .price {
+      font-size: 2.3rem;
+      margin: 18px 0;
+      color: var(--turquoise);
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 26px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      color: var(--gray);
+    }
+
+    li::before {
+      content: "✓ ";
+      color: var(--turquoise);
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 32px;
+      background: var(--turquoise);
+      color: #001b1b;
+      font-weight: 600;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(31, 209, 193, 0.4);
+    }
+
+    /* ================= ADDONS ================= */
+
+    .addons {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .addon {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 50px 10%;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="pricing-header">
+  <h1>Intelligent. Secure. Scalable.</h1>
+  <p>
+    Transparent pricing designed for creative teams that grow with data,
+    ideas and ambition.
+  </p>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <h2>MindVault Abos</h2>
+
+  <div class="pricing">
+
+    <div class="plan">
+      <h3>Starter</h3>
+      <p>Freelancer & Einzelpersonen</p>
+      <div class="price">19 € / Monat</div>
+      <ul>
+        <li>1 Benutzer</li>
+        <li>100 GB Cloud-Speicher</li>
+        <li>1.000 KI-Tokens / Monat</li>
+        <li>Automatische KI-Erkennung</li>
+        <li>Semantische Suche</li>
+        <li>DSGVO-konforme EU-Cloud</li>
+      </ul>
+      <a href="Aboutuss.html" class="btn">Kostenlos testen</a>
+    </div>
+
+    <div class="plan popular">
+      <div class="badge">Beliebt</div>
+      <h3>Team</h3>
+      <p>Kleine Teams & Agenturen</p>
+      <div class="price">99 € / Monat</div>
+      <ul>
+        <li>Bis zu 10 Benutzer</li>
+        <li>1 TB Cloud-Speicher</li>
+        <li>10.000 KI-Tokens / Monat</li>
+        <li>Teamfreigaben & Kommentare</li>
+        <li>Versionierung</li>
+        <li>Semantische KI-Suche</li>
+        <li>DSGVO & EU-Hosting</li>
+      </ul>
+      <a href="Auboutus.html" class="btn">30 Tage gratis</a>
+    </div>
+
+    <div class="plan">
+      <h3>Business</h3>
+      <p>Unternehmen & größere Agenturen</p>
+      <div class="price">249 € / Monat</div>
+      <ul>
+        <li>Bis zu 30 Benutzer</li>
+        <li>3 TB Cloud-Speicher</li>
+        <li>30.000 KI-Tokens / Monat</li>
+        <li>Erweiterte Nutzerverwaltung</li>
+        <li>Kundenfreigaben</li>
+        <li>Priorisierter Support</li>
+        <li>Maximale DSGVO-Sicherheit</li>
+      </ul>
+      <a href="aaboutus.html" class="btn">Jetzt starten</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADDONS -->
+<section>
+  <h2>Flexible Erweiterungen</h2>
+
+  <div class="addons">
+    <div class="addon">
+      <h3>☁️ Speicher-Erweiterungen</h3>
+      <p>
+        +250 GB → 5 €<br>
+        +1 TB → 15 €<br>
+        +5 TB → 50 €<br>
+        +10 TB → 90 €
+      </p>
+    </div>
+
+    <div class="addon">
+      <h3>🧠 KI-Tokens</h3>
+      <p>
+        +5.000 Tokens → 10 €<br>
+        +20.000 Tokens → 30 €<br>
+        +100.000 Tokens → 100 €
+      </p>
+    </div>
+
+    <div class="addon">
+      <h3>📦 Enterprise (Coming Soon)</h3>
+      <p>
+        Individuelle Verträge<br>
+        API-Zugriff<br>
+        Unlimitierter Speicher
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 MindVault · Preise zzgl. MwSt · Made in Europe · DSGVO-konform
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MindVault – Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --blue: #0a1a2f;
+      --turquoise: #1fd1c1;
+      --white: #ffffff;
+      --gray: #9fb3c8;
+      --card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #081426, #0a1a2f);
+      color: var(--white);
+    }
+
+    .checkout-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 5%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* FORM */
+    .card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 40px;
+      backdrop-filter: blur(12px);
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--white);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    input::placeholder {
+      color: #6f839a;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* SUMMARY */
+    .summary {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 40px;
+      height: fit-content;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: var(--gray);
+    }
+
+    .summary-total {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 30px;
+      padding: 16px;
+      background: var(--turquoise);
+      color: #001b1b;
+      font-weight: 600;
+      border-radius: 40px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(31, 209, 193, 0.4);
+    }
+
+    .trust {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 5%;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+  <!-- LEFT: FORM -->
+  <div>
+    <h1>Checkout</h1>
+
+    <div class="card">
+      <h2>Rechnungsinformationen</h2>
+
+      <label>Firma (optional)</label>
+      <input type="text" placeholder="MindVault GmbH">
+
+      <div class="row">
+        <div>
+          <label>Vorname</label>
+          <input type="text" placeholder="Max">
+        </div>
+        <div>
+          <label>Nachname</label>
+          <input type="text" placeholder="Mustermann">
+        </div>
+      </div>
+
+      <label>E-Mail-Adresse</label>
+      <input type="email" placeholder="max@agentur.de">
+
+      <label>Adresse</label>
+      <input type="text" placeholder="Straße & Hausnummer">
+
+      <div class="row">
+        <input type="text" placeholder="PLZ">
+        <input type="text" placeholder="Stadt">
+      </div>
+
+      <label>Land</label>
+      <select>
+        <option>Deutschland</option>
+        <option>Österreich</option>
+        <option>Schweiz</option>
+      </select>
+
+      <h2 style="margin-top:40px;">Zahlungsmethode</h2>
+
+      <label>Kreditkarte oder IBAN</label>
+      <input type="text" placeholder="Kartennummer oder IBAN">
+
+      <div class="row">
+        <input type="text" placeholder="MM / JJ">
+        <input type="text" placeholder="CVC">
+      </div>
+
+      <button class="btn" onclick="window.location.href='main.html'">Abo jetzt starten</button>
+
+      <div class="trust">
+        🔒 Sichere Zahlung · DSGVO-konform · EU-Server
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: SUMMARY -->
+  <div class="summary">
+    <h2>Zusammenfassung</h2>
+
+    <div class="summary-item">
+      <span>Plan</span>
+      <span>Team</span>
+    </div>
+
+    <div class="summary-item">
+      <span>Abrechnung</span>
+      <span>Monatlich</span>
+    </div>
+
+    <div class="summary-item">
+      <span>Cloud-Speicher</span>
+      <span>1 TB</span>
+    </div>
+
+    <div class="summary-item">
+      <span>KI-Tokens</span>
+      <span>10.000</span>
+    </div>
+
+    <div class="summary-total">
+      <span>Gesamt</span>
+      <span>19 € / Monat</span>
+    </div>
+
+    <p style="margin-top:20px;">
+      30 Tage kostenlos testen.  
+      Kündigung jederzeit möglich.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 MindVault · Sicher zahlen · Made in Europe
+</footer>
+
+</body>
+</html>
